@@ -3,7 +3,7 @@
 
 defmodule Implementation do
     def while(r) do
-        n = IO.gets("") #|> String.trim_trailing
+        n = IO.gets("")
         if n == :eof do
             IO.puts r
             "exit"
@@ -20,6 +20,5 @@ defmodule Implementation do
 end
 
 defmodule Solution do
-    #Enter your code here. Read input from STDIN. Print output to STDOUT
     Implementation.while(0)
 end
