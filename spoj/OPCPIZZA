@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    long long int n,b;
+    long long int f,o;
+    cin>>n;
+    while(n--)
+    {
+        cin>>b;
+        f=(3*b*b);
+        o=((f+b)/2)%1000007;
+        cout<<o<<"\n";
+    }
+    return 0;
+}
