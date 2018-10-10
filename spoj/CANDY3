@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	 int n,s;
+	cin>>n;
+	while(n--)
+	{
+		
+		int s;
+		cin>>s;
+		long long int a[s];
+		long long int sum=0;
+		long long int i;
+		for(i=0;i<s;i++)
+		{
+			cin>>a[i];
+			sum=(sum+a[i])%s;
+
+		}
+		if(sum%s==0)
+		cout<<"YES"<<"\n";
+		else
+		cout<<"NO"<<"\n";
+	}
+	return 0;
+}
