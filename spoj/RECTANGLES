@@ -1,0 +1,19 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int sum=0;
+    int count=0;
+    for(int i=1;i<=sqrt(n);i++)
+    {
+            count++;
+            sum+=n/i;
+
+    }
+    cout<<sum-(count-1)*(count)/2;
+    return 0;
+}
