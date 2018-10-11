@@ -1,0 +1,53 @@
+#include<cstdio>
+
+struct Elem
+{
+ int val,smoke,calc;
+};
+
+Elem d[101][101];
+
+const int INF=2147483647;
+
+void Build(int x,int y)
+{
+ d[x][y].smoke=INF;
+ for(int sq=x;sq<y;sq++)
+     {
+      if(d[x][sq].calc==0)
+         Build(x,sq);
+      if(d[sq+1][y].calc==0)
+         Build(sq+1,y);
+      int smoke=d[x][sq].smoke+d[sq+1][y].smoke+d[x][sq].val*d[sq+1][y].val;
+      if(smoke<d[x][y].smoke)
+         {
+          d[x][y].val=(d[x][sq].val+d[sq+1][y].val)%100;
+          d[x][y].smoke=smoke;
+         }
+     }
+ d[x][y].calc=1;
+}
+
+int main()
+{
+ //freopen("a.in","r",stdin);
+ //freopen("a.out","w",stdout);
+ int n;
+ scanf("%d ",&n);
+ while(!feof(stdin))
+       {
+        for(int i=1;i<=n;i++)
+            for(int j=1;j<=n;j++)
+                d[i][j].val=d[i][j].smoke=d[i][j].calc=0;
+        for(int i=1;i<=n;i++)
+            {
+             scanf("%d ",&d[i][i].val);
+             d[i][i].calc=1;
+            }
+        if(n>1)
+           Build(1,n);
+        printf("%d\n",d[1][n].smoke);
+        scanf("%d ",&n);
+       }
+return 0;
+}
