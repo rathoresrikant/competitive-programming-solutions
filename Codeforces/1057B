@@ -1,0 +1,33 @@
+#include <cstdio>
+#include <algorithm>
+
+const int NMAX=5001;
+
+int v[NMAX];
+
+int main()
+{
+ //freopen("a.in","r",stdin);
+ //freopen("a.out","w",stdout);
+ int n;
+ scanf("%d ",&n);
+ for(int i=1;i<=n;i++)
+     {
+      scanf("%d ",&v[i]);
+     }
+
+ int maximum=0;
+ for(int i=1;i<=n;i++)
+     {
+      int sum=0;
+      for(int j=i;j<=n;j++)
+          {
+           sum+=v[j];
+           if(sum>100*(j-i+1))
+              maximum=std::max(maximum,j-i+1);
+          }
+     }
+
+ printf("%d\n",maximum);
+ return 0;
+}
