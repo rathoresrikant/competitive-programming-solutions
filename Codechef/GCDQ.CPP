@@ -1,4 +1,4 @@
-#define m 100000
+#define m 99999
 #include <iostream>
 #include<algorithm>
 using namespace std;
