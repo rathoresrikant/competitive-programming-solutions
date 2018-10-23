@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main()
+{
+
+
+int n,i,j;
+i=0;
+
+scanf("%d",&n);
+int a[n];
+int b[n];
+int k,s;
+k=0;
+s=0;
+for(i=0;i<n;i++)
+{
+    scanf("%d",&a[i]);
+    k=k+a[i];
+}
+for(i=0;i<n;i++)
+{
+    scanf("%d",&b[i]);
+    s=s+b[i];
+}
+
+if(s<=k)
+{
+    printf("Yes");
+    
+}
+else{
+    printf("No");
+    
+}
+
+
+
+
+}
