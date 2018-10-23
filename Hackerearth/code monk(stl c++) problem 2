@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+
+    map< int,string >mp;
+    set<string>s;
+
+int t,n;
+scanf("%d",&t);
+for(int y=1;y<=t;y++)
+{
+    
+    cin>>n;
+    for(int j=0;j<=n;j++)
+    {
+     string str; 
+  
+   
+    getline(cin,str); 
+ 
+    
+    
+     
+     s.insert(str);
+
+    
+    }
+    
+    
+    set <string>::iterator it;
+    
+    
+    
+    
+    for(it = s.begin();it != s.end();++it){
+        cout << *it <<endl;
+        
+    }
+    
+    s.clear();
+    
+    
+    
+}
+    
+    
+    
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
