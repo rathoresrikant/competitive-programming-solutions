@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+int n,k,*A,i,count=0;
+char flag='n';
+cin>>n>>k;
+A=new int [n];
+for(i=0;i<n;i++)
+    cin>>A[i];
+for(i=0;i<n;i++){
+    if(A[i]>k){
+        flag='y';
+        break;
+    }
+    count++;
+}
+
+if(flag=='y'){
+for(i=n-1;i>-1;i--){
+     if(A[i]>k)
+        break;
+    count++;
+
+}
+}
+cout<<count;
+
+return 0;
+}
