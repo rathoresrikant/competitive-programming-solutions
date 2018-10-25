@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int check(string A){
+if(A=="XXXL")
+    return 0;
+if(A=="XXL")
+    return 1;
+if(A=="XL")
+    return 2;
+if(A=="L")
+    return 3;
+if(A=="M")
+    return 4;
+if(A=="S")
+    return 5;
+if(A=="XS")
+    return 6;
+if(A=="XXS")
+    return 7;
+if(A=="XXXS")
+    return 8;
+
+
+}
+
+
+int main(){
+int n;
+int a;
+string input;
+cin>>n;
+int arr[18];
+int i;
+for(i=0;i<18;i++)
+    arr[i]=0;
+for(i=0;i<n;i++){
+    cin>>input;
+    a=check(input);
+    arr[a]++;
+}
+for(i=0;i<n;i++){
+    cin>>input;
+    a=check(input);
+    arr[a+9]++;
+}
+int diff;
+int d[9];
+for(i=0;i<9;i++){
+    diff=arr[i]-arr[i+9];
+    d[i]=((diff>0)?(diff):(-1*diff));
+}
+
+int sum=d[0]+d[1]+d[2];
+int temp=0;
+for(i=3;i<6;i++){
+    if((arr[i]-arr[i+9])>0)
+        temp+=arr[i]-arr[i+9];
+}
+sum+=temp;
+cout<<sum;
+
+return 0;
+}
