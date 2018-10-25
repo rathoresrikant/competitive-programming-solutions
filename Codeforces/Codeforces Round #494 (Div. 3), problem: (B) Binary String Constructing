@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+int a,b,x;
+cin>>a>>b>>x;
+int n_a=a;
+int n_b=b;
+int i,j,q,w;
+int n_x=x;
+int *A=new int [a+b];
+if(a>b){
+    q=0;
+    w=1;
+
+if(x%2==0){
+    A[a+b-1]=q;
+    n_a--;
+    n_x--;
+}
+for(i=0;i<n_a-(n_x/2);i++){
+    A[i]=q;
+}
+for(j=0;j<(n_x/2);j++){
+    A[i]=w;
+    A[i+1]=q;
+    i+=2;
+}
+for(j=0;j<n_b-(n_x/2);j++){
+    A[i]=w;
+    i++;
+}
+}
+
+
+if(a<=b){
+    q=1;
+    w=0;
+
+if(x%2==0){
+    A[a+b-1]=q;
+    n_b--;
+    n_x--;
+}
+for(i=0;i<n_b-(n_x/2);i++){
+    A[i]=q;
+}
+for(j=0;j<(n_x/2);j++){
+    A[i]=w;
+    A[i+1]=q;
+    i+=2;
+}
+for(j=0;j<n_a-(n_x/2);j++){
+    A[i]=w;
+    i++;
+}
+}
+
+
+
+
+for(i=0;i<a+b;i++){
+    cout<<A[i];
+}
+
+
+
+return 0;
+}
