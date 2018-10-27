@@ -19,43 +19,38 @@ For each test case, print a single line containing three space-separated integer
 
 */
 
-
-
 #include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
 int main()
 {
-long t,i;
-int n;
-scanf("%ld",&t);
-for(i=0;i<t;i++)
-{
-scanf("%d",&n);
-if(n==0)
-printf("0 0 0\n");
-else
-{
-if(n%26==1 || n%26==2)
-{
-printf("%.0lf 0 0\n",pow(2,n/26));
-continue;
+    int n;
+    scanf("%d",&n);
+    while(n--)
+    {
+      long long int bit=1,nibble=0,byte=0,c=0,t;
+        scanf("%lld",&t);
+        while(t--)
+        {
+            if(c==2)
+            {
+                nibble=bit;
+                bit=0;
+            }
+            if(c==10)
+            {
+                byte=nibble;
+                nibble=0;
+            }
+            if(c==26)
+            {
+                bit=byte*2;
+                byte=0;
+                c=0;
+            }
+            c++;
+        }
+        printf("%lld %lld %lld\n",bit,nibble,byte);
+
+    }
+    return 0;
 }
-else if(n%26>=3 && n%26<11)
-{
-printf("0 %.0lf 0\n",pow(2,n/26));
-continue;
-}
-else if (n%26!=0)
-{
-printf("0 0 %0.lf\n",pow(2,n/26));
-continue;
-}
-else
-{
-printf("0 0 %.0lf\n",pow(2,(n/26)-1));
-continue;
-}
-}
-}
-}
+
