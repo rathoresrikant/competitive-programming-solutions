@@ -4,7 +4,7 @@ using namespace std;
 int main(){
     int n,k,t,i,a;
     cin>>t;
-    while(t--){
+    for (int i=0;i<t;i++){
         cin>>n;
         cin>>k;
         for(i=0;i<n;i++){
@@ -16,7 +16,7 @@ int main(){
            else 
                 cout<<0;
         }
-        cout<<"\n";
+        cout<<endl;
     }
 }
 
