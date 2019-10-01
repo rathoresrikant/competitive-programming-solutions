@@ -20,5 +20,5 @@ int main(){
     ans+=n/5;
     n=n%5;
     ans+=n;
-    cout<<ans<<endl;
+    cout<<ans<<"\n";
 }
