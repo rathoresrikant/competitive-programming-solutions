@@ -1,27 +1,21 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-int main()
-{
-    int n,i,v=0,nv=0;
-    string s;
-    cin>>n;
-    cin>>s;
-
-
-    for(i=0;i<n;i++)
-    {
-        if(s[i]=='U')
-            v=v+1;
-        else
-            v=v-1;
-        
-        if((v==0)&&(s[i]=='U'))
-        {
-            nv++;
-        }
+/*
+    * Prosen Ghosh
+    * American International University - Bangladesh (AIUB)
+    *
+*/
+int main() {
+    int n,updown = 0,res = 0;
+    char c;
+    cin >> n;
+    
+    for(int i = 0; i++ < n;){
+        cin >> c;
+        if(c == 'U')updown++;
+        else updown--;
+        if(updown == 0 && c == 'U')res++;
     }
-    cout<<nv;
+    cout << res << endl;
     return 0;
 }
-
