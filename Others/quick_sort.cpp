@@ -1,39 +1,55 @@
 #include<iostream>
 using namespace std;
-void swap(int &a, int &b){
-	int c = a;
-	a = b;
-	b = c;
+
+void swape(int *x,int* y)
+{
+    int t;
+    t=*x;
+    *x=*y;
+    *y=t;
 }
-int partition(int l, int r, int a[]){
-	int pivot = a[(l+r)/2],i=l,j=r;
-	while(i<j){
-		while(i!=r&&a[i]<=pivot){
-			i++;
-		}
-		while(j!=l&&(j==(l+r)/2||a[j]>pivot)){
-			j--;
-		}
-		if(i<j){
-			swap(a[i],a[j]);
-		}
-	}
-	swap(a[(l+r)/2],a[j]);
-	return j;
+
+int partitiona(int a[],int l,int h)
+{
+    int i=l,j=h;
+    int pivot=a[l];
+    do
+    {
+        do
+        {
+            i++;
+        }while(a[i]<=pivot);
+        do
+        {
+            j--;
+        }while(a[j]>pivot);
+        if(i<j)
+        {
+            swape(&a[i],&a[j]);
+        }
+    }while(i<j);
+    swape(&a[j],&a[l]);
+    return j;
 }
-void quicksort(int l, int r, int a[]){
-	if(l<r){
-		int j = partition(l, r, a);
-		quicksort(l, j-1, a);
-		quicksort(j+1, r, a);
-	}
-	else 
-		return;
+
+void quicksort(int a[],int l,int h)
+{
+    int j;
+    if(l<h)
+    {
+        j=partitiona(a,l,h);
+        quicksort(a,l,j);
+        quicksort(a,j+1,h);
+    }
 }
-int main(){
-	int a[] = {14,41,93,40,98};
-	quicksort(0,4,a);
-	for(int i=0;i<5;i++)
-		cout<<a[i]<<" ";
-	return 0;
+
+
+
+int main()
+{
+    int a[]={5,67,3,12,55,78,32,INT_MAX};
+    quicksort(a,0,7);
+    for(int i=0;i<7;i++)
+        cout<<a[i]<<" ";
+    return 0;
 }
