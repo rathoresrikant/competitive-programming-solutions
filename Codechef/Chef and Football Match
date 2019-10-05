@@ -1,0 +1,76 @@
+link=https://www.codechef.com/LTIME76B/problems/WATCHFB
+
+solution=
+#include <bits/stdc++.h>
+
+#define   ll             long long int
+#define   pb             push_back
+#define   mp             make_pair
+#define   fast           ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define   ff             first
+#define   ss             second
+#define   nil           -10e+9
+#define   initial         0
+#define   waiting         1
+#define   visit           2
+#define   inf            10e+9
+#define   mx             200005
+#define   mxx            1000005
+#define   mod            1000000007
+#define   pr             pair<ll,ll>
+#define   pp_queue       priority_queue<pr,vector<pr>, greater<pr> >
+#define   dp_queue       priority_queue<int,vector<int>, greater<int> >
+#define   sp_queue       priority_queue<int>
+#define   fr(i,p,q)      for(int i=p;i<q;++i)
+#define   frr(i,p,q)     for(int i=p;i<=q;++i)
+#define   mem(a,b)       memset(a,b,sizeof(a))
+#define   len(a)         (int)a.size()
+#define   input          freopen("input.txt", "r", stdin);
+#define   output         freopen("output.txt", "w", stdout);
+#define   debug(arr,j,n) fr(i,j,n) cout<<arr[i]<<" ";
+
+ll power(ll a,ll b){ll aa=1;while(b){if(b&1){aa=aa*a;aa%=mod;}a=a*a;a%=mod;b/=2;}return aa;}
+
+using namespace std;
+
+int main()
+{
+  int t;
+  cin>>t;
+
+  while(t--){
+    int n;
+    cin>>n;
+    int a=0,b=0;
+    while(n--){
+      int x,y,z;
+      cin>>x>>y>>z;
+
+      if(x==1){
+        a=y;
+        b=z;
+        cout<<"YES\n";
+      }else{
+        if(min(y,z)<a and max(y,z)>b){
+          a=max(y,z);
+          b=min(y,z);
+
+          cout<<"YES\n";
+        }else if(min(y,z)<b and max(y,z)>a){
+          b=max(y,z);
+          a=min(y,z);
+
+          cout<<"YES\n";
+      }else if(y==z){
+        a=b=y;
+        cout<<"YES\n";
+
+      }else
+      cout<<"NO\n";
+
+    }
+  }
+
+}
+  return 0;
+}
