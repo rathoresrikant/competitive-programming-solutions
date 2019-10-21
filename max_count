@@ -1,0 +1,69 @@
+#include<bits/stdc++.h>
+#define pb push_back
+using namespace std;
+//for incresing compilation speed;
+void fastio()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+}
+int main()
+{
+	fastio();
+	int t;
+	cin>>t;			//Total no of test case;
+	while(t--)
+	{
+		int n;
+		cin>>n;		//no of string;
+		vector<string> vec;
+		vector<pair<string, int> > vec_pair;	//vector pair of string and it's truthness;
+		map<string, int> mp;					//map of a string and it's presence;
+		for(int i=0;i<n;i++)
+		{
+			string str;
+			int val;
+			cin>>str>>val;						//user input(string and it's truthness);
+			vec_pair.pb(make_pair(str,val));	//vector pair of string and truthness;
+			if(mp[str]==0)						//if the string is previously not taken then push it into vector
+			{									//and mark as present;
+				vec.pb(str);
+				mp[str]=1;
+			}
+		}
+		int zero=0,one=0,p=0,cnt=0;
+		sort(vec.begin(),vec.end());			//sort the vector;
+		sort(vec_pair.begin(),vec_pair.end());	//sort the vector pair;
+		for(int i=0;i<n;i++)
+		{
+			if(vec_pair[i].first==vec[p])
+			{
+				if(vec_pair[i].second==0)		//if truthness is false then increase zero;
+					zero++;
+				else if(vec_pair[i].second==1)	//if truthness is true then increase one;
+					one++;
+			}
+			else
+			{
+				if(zero>one)					//if zero is greater than one then add zero with cnt variable;
+					cnt+=zero;
+				else							//else add one with cnt variable;
+					cnt+=one;
+				p++;
+				zero=0;
+				one=0;
+				if(vec_pair[i].second==0)
+					zero++;
+				else if(vec_pair[i].second==1)
+					one++;
+			}
+		}
+		if(zero>one)							//if zero is greater than one then add zero with cnt variable;
+			cnt+=zero;
+		else									//else add one with cnt variable;
+			cnt+=one;
+		cout << cnt << endl;
+	}
+	return 0;
+}
