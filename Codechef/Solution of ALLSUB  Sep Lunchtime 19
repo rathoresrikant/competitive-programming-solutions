@@ -1,0 +1,106 @@
+link =https://www.codechef.com/LTIME76B/problems/ALLSUB
+
+solution=
+#include <bits/stdc++.h>
+
+#define   ll             long long int
+#define   pb             push_back
+#define   mp             make_pair
+#define   fast           ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define   ff             first
+#define   ss             second
+#define   nil           -10e+9
+#define   initial         0
+#define   waiting         1
+#define   visit           2
+#define   inf            10e+9
+#define   mx             200005
+#define   mxx            1000005
+#define   mod            1000000007
+#define   pr             pair<ll,ll>
+#define   pp_queue       priority_queue<pr,vector<pr>, greater<pr> >
+#define   dp_queue       priority_queue<int,vector<int>, greater<int> >
+#define   sp_queue       priority_queue<int>
+#define   fr(i,p,q)      for(int i=p;i<q;++i)
+#define   frr(i,p,q)     for(int i=p;i<=q;++i)
+#define   mem(a,b)       memset(a,b,sizeof(a))
+#define   len(a)         (int)a.size()
+#define   input          freopen("input.txt", "r", stdin);
+#define   output         freopen("output.txt", "w", stdout);
+#define   debug(arr,j,n) fr(i,j,n) cout<<arr[i]<<" ";
+
+ll power(ll a,ll b){ll aa=1;while(b){if(b&1){aa=aa*a;aa%=mod;}a=a*a;a%=mod;b/=2;}return aa;}
+
+using namespace std;
+
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--){
+    map<char,int> mp1,mp2;
+    string a,b;
+    cin>>a;
+    cin>>b;
+
+    for(char i:a) mp1[i]++;
+    for(char i:b) mp2[i]++;
+
+    if(a.size()>b.size()){
+      cout<<"Impossible\n";
+      continue;
+    }
+
+    string s="";
+
+    bool ans=true;
+
+    for(auto i:mp1){
+      if(mp2[i.first]<i.second){
+        ans=false;
+        break;
+      }
+    }
+
+    for(auto i:mp1){
+      mp2[i.first]-=i.second;
+    }
+
+    int   minm=10000;
+    for(char i:a){
+      if(i-'a'<a[0]-'a'){
+        minm=i-'a';
+      }else if(i-'a'>a[0]-'a')
+       break;
+    }
+  //  cout<<minm<<" ";
+    int r=a[0]-'a';
+    bool check=false;
+
+    for(auto i:mp2){
+      int  d=i.first-'a';
+      if(r<d and check==false){
+        s+=a;
+        check=true;
+      }
+
+      if(r==d and minm<d and check==false){
+        s+=a;
+        check=true;
+      }
+
+      if(i.second>0){
+        for(int j=0;j<i.second;j++) s+=(i.first);
+      }
+    }
+
+    if(check==false) s+=a;
+
+    if(ans) cout<<s<<"\n";
+    else
+    cout<<"Impossible\n";
+
+
+  }
+  return 0;
+}
