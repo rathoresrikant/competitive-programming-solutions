@@ -1,0 +1,64 @@
+question link=https://www.hackerearth.com/practice/data-structures/advanced-data-structures/fenwick-binary-indexed-trees/practice-problems/algorithm/smallest-dividable-segment-82dc8519/
+
+#include <bits/stdc++.h>
+#define fast ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define len(a) (int)a.size()
+#define fr(i,x,y) for(int i=x;i<y;i++)
+using namespace std;
+
+const int N=1e6+5;
+
+int a[N];
+int BIT[N];
+
+void update(int x,int val,int n){
+    for(;x<=n;x+=(x&-x)) BIT[x]+=val;
+}
+
+int query(int l){
+    int sum=0;
+    for(;l>0;l-=(l&-l)) sum+=BIT[l];
+    return sum;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    
+    memset(BIT,0,sizeof(BIT));
+    
+    fr(i,1,n+1){
+        cin>>a[i];
+        update(i,a[i]%2,n);
+    }
+    
+    int q;
+    cin>>q;
+    
+    fr(i,0,q){
+        int t,x,y;
+        cin>>t>>x>>y;
+        
+        if(t==0){
+            int frst=a[x]%2;
+            a[x]=y;
+            int scnd=a[x]%2;
+            
+            if( frst==1 and scnd==0 ) update(x,-1,n);
+            if( frst==0 and scnd==1 ) update(x,1,n);
+        }else{
+            if(x==1 and t==2) cout<<query(y)<<"\n";
+            else if(x==1 and t==1) cout<<y-x+1-query(y)<<"\n";
+            else if(x>1){
+                if(t==1)
+                cout<<y-x+1-query(y)+query(x-1)<<"\n";
+                else
+                cout<<query(y)-query(x-1)<<"\n";
+            }
+            
+        }
+        
+    }
+    
+}
