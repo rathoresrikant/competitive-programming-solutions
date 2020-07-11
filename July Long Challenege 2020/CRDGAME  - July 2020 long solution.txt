@@ -1,0 +1,82 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+	int n;
+	cin>>n;
+	int a[n];
+	int b[n];
+	int a1=0,b1=0;
+	for(int i=0;i<n;i++)
+	{
+		cin>>a[i]>>b[i];
+	}
+	for(int i=0;i<n;i++)
+	{	
+		int s1=0,s2=0;
+		int d1=0,d2=0;
+		int n1=a[i];
+		int n2=b[i];
+		if(a[i]<10)
+			s1+=a[i];
+		if(b[i]<10)
+			s2+=b[i];
+		if(a[i]>9)
+		{
+
+		while(n1!=0)
+		{
+			if(n1!=0)
+			{
+			d1=n1%10;
+			s1+=d1;
+			n1/=10;
+			}
+			
+		}
+		
+	}
+	if(b[i]>9)
+	{
+		if(n2!=0)
+		{	
+			while(n2!=0)
+			{
+				d2=n2%10;
+				s2+=d2;
+				n2/=10;
+			}
+		}
+	}
+	if(s1>s2)
+			a1++;
+		if(s1<s2)
+			b1++;
+		if(s1==s2)
+		{
+			a1++;
+			b1++;
+		}
+	}   
+	if(a1>b1)
+		cout<<0<<" "<<a1<<"\n";
+	else if(a1<b1)
+		cout<<1<<" "<<b1<<"\n";
+	else
+		cout<<2<<" "<<a1<<"\n";
+}
+
+
+
+int main()
+{
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	int t;
+	cin>>t;
+	for(int i=0;i<t;i++)
+	{
+	solve();
+	}
+}
