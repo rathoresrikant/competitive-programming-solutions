@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool sortbysecdesc( pair<string,int> &a, 
+                    pair<string,int> &b) 
+{ 
+    if(a.second!=b.second)
+       return a.second>b.second;
+       else if(a.second==b.second)
+       {
+           
+        return a.first<b.first;
+       }
+       
+} 
+  
+int main()
+{
+    long long int n;
+    vector<pair<string,int > > v1;
+    scanf("%lld",&n);
+    int y;
+    for(int i=1;i<=n;i++)
+    {
+
+string str;
+cin>>str;
+scanf("%d",&y);
+ 
+ v1.push_back( make_pair(str,y) ); 
+  
+
+    }
+     sort(v1.begin(), v1.end(),sortbysecdesc) ;
+     
+  
+    
+     
+    for (int i=0; i<n; i++) 
+    { 
+        
+        cout << v1[i].first<<" "<<v1[i].second<< endl; 
+        
+    }
+}
+ 
+

@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+long long    int t,n,m;
+    scanf("%lld",&t);
+    for(long long int i=1;i<=t;i++){
+    
+    scanf("%lld %lld",&n,&m);
+long long  int a[n]={0};
+long long  int b;
+    vector<long long int>v2;
+    
+        for(long long int j=0;j<n;j++)
+        {
+            
+            scanf("%lld",&a[j]);
+            
+        }
+        for(long long  int k=0;k<m;k++)
+        {
+            scanf("%lld",&b);
+            v2.push_back(b);
+        }
+        
+        
+        
+            set<long long int >s(a,a+n);
+    
+    set<long long int >::iterator it;
+    
+    for(long long int y=0;y<m;y++)
+    {
+        
+        for(it = s.begin();it != s.end();++it)
+        {
+            if (s.count(v2[y])) {
+   cout<<"YES"<<endl;
+   break;
+} else {
+   cout<<"NO"<<endl;
+
+    break;
+}
+
+        }s.insert(v2[y]);
+        
+        
+    }
+        }
+
+}
+
+
+
+
