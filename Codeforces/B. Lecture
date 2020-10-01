@@ -1,0 +1,61 @@
+#include <iostream>
+#include<string>
+#include<vector>
+using namespace std;
+ 
+int main()
+{
+    vector<vector<string>> v;
+    vector<string> d;
+ 
+    string s;
+    int n, m, idx;
+    cin>>n>>m;
+    int arr[n];
+    int brr[m];
+ 
+    for(int i=0; i<m; i++)          //2 language words stored in 2-D vector v
+    {
+        auto min = 11;
+        idx = -1;
+        for(int j=0; j<2; j++)
+        {
+            cin>>s;
+            if(s.size() < min)
+            {
+                min = s.size();
+                idx++;
+            }
+            d.push_back(s);
+            s.clear();
+        }
+        brr[i] = idx;
+        v.push_back(d);
+        d.clear();
+    }
+ 
+    d.clear();
+    for(int i=0; i<n; i++)  //Professor words stored in vector d
+    {
+        cin>>s;
+        for(int j=0; j<m; j++)
+        {
+            if(s == v[j][0])
+                arr[i] = j;             // matched words index no. of v stored in arr
+        }
+        s.clear();
+    }
+ 
+    for(int i=0; i<n; i++)
+    {
+        d.push_back( v[ arr[i] ][ brr[ arr[i] ] ] );
+    }
+ 
+ 
+    for(int i=0; i<n; i++)
+    {
+        cout<<d[i]<<" ";
+    }
+ 
+ 
+}
