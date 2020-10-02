@@ -18,3 +18,6 @@ int Solution::gcd(int a, int b)
   }
   return b;
 }
+// Another method is just, use a Standard template library to make code much easier
+#include<bits/stdc++.h>
+int ans = __gcd(a,b);
