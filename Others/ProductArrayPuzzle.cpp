@@ -8,9 +8,7 @@ int main() {
 	    int arr[a];
 	    long long int y=1;
 	    for(int i=0;i<a;i++){cin>>arr[i];y=y*arr[i];}
-	    for(int i=0;i<a;i++){
-	        cout<<(y/arr[i])<<" ";
-	    }
+	    for(int i=0;i<a;i++) cout<<(y/arr[i])<<" ";
 	    cout<<endl;
 	}
 	return 0;
