@@ -1,0 +1,34 @@
+#include <iostream>
+#include<string>
+using namespace std;
+int main() {
+    int t;
+    cin>>t;
+       
+    while(t>0){
+        t--;
+        int a[6]={0};
+    int n;
+    cin>>n;
+    string s;
+    for(int i=0;i<n;i++){
+        cin>>s;
+  for(int j=0;j<=s.length();j++){
+        if(s[j]=='c'){ a[0]++;}
+        if(s[j]=='o'){ a[1]++; }
+        if(s[j]=='d'){a[2]++; }
+         if(s[j]=='e'){ a[3]++;}
+        if(s[j]=='f'){ a[4]++;}
+         if(s[j]=='h'){a[5]++;}
+       }}
+       a[0]=a[0]/2;
+       a[3]=a[3]/2;
+       int min=a[0];
+        for(int i=0;i<6;i++){
+            if(a[i]<min){
+                min=a[i];
+                }}
+        cout<<min<<"\n";
+    }
+	return 0;
+}
