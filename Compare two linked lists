@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int n;cin>>n;
+	while(n--){
+	    string a,b;
+	    cin>>a>>b;int res=0;double z,x,c,v;
+	    for(int i=0;i<a.length();i++){
+	        if(a[i]=='/'){
+	            z=res;res=0;
+	        }
+	        else if(a[i]==','){
+	            x=res;res=0;
+	        }
+	        else{res = res*10 + (a[i]-'0');}
+	    }
+	    ////////////////
+	    b+=',';res=0;
+	    for(int i=0;i<b.length();i++){
+	        if(b[i]=='/'){
+	            c=res;res=0;
+	        }
+	        else if(b[i]==','){
+	            v=res;res=0;
+	        }
+	        else{res = res*10 + (b[i]-'0');}
+	    }
+	    if((z/x)>(c/v)){
+	        cout<<z<<"/"<<x<<endl;
+	    }
+	    else if((z/x) < (c/v)){
+	        cout<<c<<"/"<<v<<endl;
+	    }
+	    else{cout<<"equal"<<endl;}
+	}
+	return 0;
+}
