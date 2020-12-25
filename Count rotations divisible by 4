@@ -1,0 +1,38 @@
+// { Driver Code Starts
+// Initial Template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+
+
+// User function Template for C++
+
+class Solution{
+public:
+    int countRotations(string N){
+        // code here
+        int count=0;
+        if(((N[0] -'0') + (N[N.length()-1] - '0')*10)%4==0){count++;}
+        for(int i=0;i<(N.length()-1);i++){
+            if(((N[i] - '0')*10 + (N[i+1] - '0'))%4==0)count++;
+        }
+        return count;
+    }
+};
+
+// { Driver Code Starts.
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        string N;
+        cin>>N;
+        
+        Solution ob;
+        cout<<ob.countRotations(N)<<endl;
+    }
+    return 0;
+}  // } Driver Code Ends
