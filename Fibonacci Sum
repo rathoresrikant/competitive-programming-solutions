@@ -1,0 +1,40 @@
+// { Driver Code Starts
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+
+
+
+
+class Solution{
+public:
+    long long int fibSum(long long int N){
+        //code here
+        long long int sum=1;
+        int fab[N+1];
+        fab[0]=0;fab[1]=1;
+        for(int i=2;i<=N;i++){
+            fab[i] = (fab[i-1]%1000000007+fab[i-2]%1000000007)%1000000007;
+            sum=(sum+fab[i]%1000000007)%1000000007;
+        }
+        return (sum)%1000000007;
+    }
+};
+
+// { Driver Code Starts.
+int main() 
+{ 
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long int N;
+        cin>>N;
+        Solution ob;
+        cout << ob.fibSum(N) << endl;
+    }
+    return 0; 
+}  // } Driver Code Ends
