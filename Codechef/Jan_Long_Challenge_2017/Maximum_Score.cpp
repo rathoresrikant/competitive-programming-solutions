@@ -11,7 +11,7 @@ int main()
   int t;
   cin >> t;
 
-  while(t--)
+  for(int i=0;i<t;i++)
   {
     int n;
     cin >> n;
@@ -61,7 +61,7 @@ for(int i=n-2;i>=0;i--)
    }
 }    
 //cout << "sum=";
-cout << sum << endl;
+cout << sum << "\n";
 }
 return 0;
 }
