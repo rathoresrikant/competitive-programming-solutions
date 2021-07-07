@@ -33,12 +33,12 @@ int main(){
                if(x!=1)cnt++;
           }
           if(cnt<=k){
-               cout<<"YES";
+               cout<<"YES"<<endl;
           }
           else{
                cout<<"NO";
           }
-          if(tc)cout<<'\n';
+          if(tc)cout<<endl;
      }
      return 0;
 }
