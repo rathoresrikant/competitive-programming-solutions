@@ -1,18 +1,18 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include<cmath>
 using namespace std;
 
-void bonAppetit()
+void fun()
 {
-    int n,k,bill[100000],b,i,s=0;
+    int n,k,a[100000],b,i,s=0;
     cin>>n>>k;
     for(i=0;i<n;i++)
-        cin>>bill[i];
+        cin>>a[i];
     cin>>b;
     for(i=0;i<n;i++)
     {
         if(i!=k)
-            s=s+bill[i];
+            s=s+a[i];
     }
     s=s/2;
     if(s==b)
@@ -28,7 +28,7 @@ void bonAppetit()
 }
 int main()
 {
-    bonAppetit();
+    fun();
     return 0;
 }
 
