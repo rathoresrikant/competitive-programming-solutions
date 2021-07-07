@@ -1,21 +1,30 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-int main() {
-	long t, n, x, s, a, b;
-	cin>>t;
-	while(t--)
-	{
-	    cin>>n>>x>>s;
-	    for(int i=0;i<s;i++)
-	    {
-	        cin>>a>>b;
-	        if(x==a)
-	        x=b;
-	        else
-	        if(x==b)
-	        x=a;
-	    }
-	    cout<<x<<endl;
-	}
-	return 0;
+int main()
+{   
+    int t;
+    cin>>t;
+    while(t>0)
+    {
+       long long int n,x,s;
+        cin>>n>>x>>s;
+        
+        while(s>0)
+        {
+            long long int a,b;
+            cin>>a>>b;
+            if(a==x)
+            {
+                x=b;
+            }
+            else if(b==x)
+            {
+                x=a;
+            }
+            
+           s--; 
+        }
+        cout<<x<<endl;
+        t--;
+    }
 }
